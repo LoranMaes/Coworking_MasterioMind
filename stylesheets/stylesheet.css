@@ -67,7 +67,7 @@ button.main{
 
 button.main:hover{
     background-position: 100% 0;
-    animation: buttonAnimation 500ms;
+    animation: buttonAnimation 500ms forwards linear;
 }
 
 /* ACHTERGROND ANIMATIONS */
@@ -416,10 +416,10 @@ button.main:hover{
         transform: scale(1);
         background-size: 300% 100%;
     }
-    97.5%{
+    50%{
         transform: scale(1.05);
     }
     100%{
-        transform: scale(1.025);
+        transform: scale(1.015);
     }
 }
