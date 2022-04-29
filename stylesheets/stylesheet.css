@@ -1,0 +1,31 @@
+/* CHANGE THE ROOT VALUES */
+:root{
+    --primary: #F5F5F5;
+    --background: #5BAFD3;
+    --fuschia100: #EF5DA8;
+    --fuschia60: #FCDDEC;
+    
+    --blackShadow: rgba(0, 0, 0, .25);
+    --fuschia100Shadow: ;
+    --fuschia60Shadow: ;
+}
+
+/* MAIN CSS FILE */
+html{
+    font-size: 62.5%;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Grandstander', 'Sans-Serif';
+    background-color: ;
+}
+
+/* BACKGROUND */
+
+/* COMPONENTS */
+/* Onderstaande button bevat de klasse main */
+button.main{
+
+}
