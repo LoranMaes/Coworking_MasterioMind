@@ -99,20 +99,26 @@ section {
     border-radius: 20px;
     border: solid 3px #797979;
 }
-.blue {
+.blue,.guess>.blue,.sections>.blue {
     background-color: #5BAFD3;
 }
-.green {
+.green,.guess>.green,.sections>.green {
     background-color: #5BD3A1;
 }
-.yellow {
+.yellow,.guess>.yellow,.sections>.yellow {
     background-color: #EDF11F;
 }
-.red {
+.red,.guess>.red,.sections>.red {
     background-color: #D35B5B;
 }
 button.blue,button.green,button.red,button.yellow {
     height: 40px;
     width: 40px;
     border-radius: 20px;
+}
+.feedback div.black {
+    background-color: #000;
+}
+.feedback div.white {
+    background-color: #F00;
 }
