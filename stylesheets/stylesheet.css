@@ -1,0 +1,59 @@
+button.close {
+
+    background-color: #EF5DA8;
+    background: #EF5DA8;
+    color: white;
+    width: 75px;
+    height: 75px;
+    border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 25px rgb(184, 21, 184);
+    display: inline-block;
+    transform: rotate(45deg);
+    
+}
+
+button.close:hover {
+    background: #b93177;
+    color: white;
+    width: 75px;
+    height: 75px;
+    border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 25px rgb(184, 21, 184);
+    text-shadow: 0 0 25px whitesmoke;
+    display: inline-block;
+}
+
+section.rules {
+    margin: auto;
+    text-align: center;
+    background-color: rgba(218, 195, 199, .5);
+    box-shadow: 0 0 25px rgb(67, 169, 228);
+    padding-top: 6px;
+    border-radius: 10px;
+}
+
+
+button {
+    background-color: #EF5DA8;
+    background: #EF5DA8;
+    color: white;
+    font-size: 60px;
+}
+
+p.small {
+    font-size: 10px;
+    text-align: center;
+    padding-bottom: 12px;
+
+}
+
+p {
+    
+    max-height: max-content;
+}
