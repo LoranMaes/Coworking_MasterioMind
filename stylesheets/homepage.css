@@ -1,0 +1,9 @@
+.container{
+    width: fit-content;
+}
+
+.button-options{
+    display: flex;
+    flex-direction: column;
+    gap: 3.6rem;
+}
