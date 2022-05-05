@@ -1,0 +1,78 @@
+/* Close button */
+button.close {
+    margin: auto;
+    margin-top: 4rem;
+    background-color: fuchsia;
+    background: fuchsia;
+    color: white;
+    width: 75px;
+    height: 75px;
+    border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 25px var(--fuschia100Shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(45deg);
+}
+
+/* Close button - hover */
+button.close:hover {
+    background: var(--fuschia100);
+    color: white;
+    width: 75px;
+    height: 75px;
+    border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 25px var(--fuschia100Shadow);
+    text-shadow: 0 0 25px whitesmoke;
+    display: flex;
+}
+
+/* Rules section */
+section.rules {
+    padding: 0 10%;
+    width: 30%;
+    border-radius: 25px;
+    margin-right: auto;
+    margin-left: auto;
+    background: rgba(124, 210, 247, 0.5);
+    box-shadow: 0 0 25px rgba(124, 210, 247);
+    justify-content: center;
+}
+
+/* Close button display */
+button {
+    background-color: fuchsia;
+    background: fuchsia;
+    color: white;
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+/* Copyright paragraph */
+p.small {
+    font-size: 2rem;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+/* Rules paragraph */
+p {
+    font-family: 'Grandstander', 'Sans-Serif';
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+    padding-top: 50px;
+    max-height: max-content;
+    text-align: center;
+} 
+
+
+
