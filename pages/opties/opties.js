@@ -22,8 +22,12 @@
         const min = range.min ? range.min : 0;
         const max = range.max ? range.max : 100;
         const newVal = Number(((val - min) * 100) / (max - min));
-        bubble.innerHTML = val;
+        
+        const backgroundColor = document.querySelector("#myRange")
+        backgroundColor.style.backgroundPosition = `${newVal}% 0`
 
+        bubble.innerHTML = val;
+        
         bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
     }
 
