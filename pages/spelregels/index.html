@@ -1,32 +1,40 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../../stylesheets/normalize.css">
+    <link rel="stylesheet" href="../../stylesheets/common.css">
+    <link rel="stylesheet" href="../../stylesheets/stylesheet.css">
 
-    <link rel="stylesheet" href="./stylesheets/normalize.css">
-    <link rel="stylesheet" href="./stylesheets/common.css">
-    <link rel="stylesheet" href="./stylesheets/stylesheet.css">
-    <link rel="stylesheet" href="./stylesheets/homepage.css">
-
-    <script src="./scripts/index.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     
-    <title>Masterio Mind - A One Person Mastermind Game</title>
+    <script src="./index.js" defer></script>
+    <title>Masterio Mind - Spelregels</title>
 </head>
 <body>
     <main>
         <div class="container">
-            <h1 class="title">Masterio Mind</h1>
-            <div class="button-options">
-                <button class="button main" id="starten_btn">SPEL STARTEN</button>
-                <button class="button main" id="spelregels_btn">SPELREGELS</button>
-                <button class="button main" id="opties_btn">OPTIES</button>
-                <button class="button main" id="taal_btn">TAAL: <span id="button-lang">Ned</span></button>
-            </div>
+            <h1 class="title">Spelregels</h1>
+            <section class="rules">
+                <div class="rules">
+                    <p>1. Probeer de geheime code te vinden!</p>
+                    <p>2. Je krijgt 7 beurten, vind je de code
+                        binnen de 7 beurten win je het spel!</p>
+                    <p>3. Rood bolletje = juiste bolletje op
+                        juiste plaats</p>
+                    <p>4. Zwart bolletje = juiste bolletje op
+                        verkeerde plaats</p>
+                    <p>5. Per foutieve rij gaat er 1 punt van je
+                        totaalscore af</p>
+                </div>         
+                    <button class="close" id="close-to-menu">+</button>
+                    <p class="small">Copyright &copy; - Coworking</p>
+            </section>
         </div>
     </main>
 
