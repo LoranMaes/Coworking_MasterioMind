@@ -1,7 +1,8 @@
 'use strict';
 
 (function() {
-    
+    //const backToHome = document.querySelector("#")
+
     //creating eventListeners for the players choice
    const inputColour = document.querySelectorAll(".inputColour");
 

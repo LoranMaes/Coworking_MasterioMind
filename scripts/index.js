@@ -8,4 +8,12 @@
     spelregels.addEventListener("click", () => {
         window.location = "./pages/spelregels"
     })
+
+    starten.addEventListener("click", () => {
+        window.location = "./pages/mastermind"
+    })
+
+    opties.addEventListener("click", () => {
+        window.location = "./pages/opties"
+    })
 })()
