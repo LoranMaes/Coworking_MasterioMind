@@ -54,32 +54,44 @@
         }
         currentChsIndex = 0;
     }
+    //resets whole board
+    const reset = function() {
+        for(let i=0;i<maxNrOfInputs;i++){
+            for(let j=0; j<maxAttempts; j++) {
+                previousChsDisp[j+i*maxNrOfInputs].className = '';
+                currentChsIndex = maxAttempts -1;
+                feedback[j + i*maxNrOfInputs].className = '';
+            }  
+        }
+    }
     //gives feedback to user
     const feedbackFctn = function() {
         let j = 0;
-        let forb = "";
+        let str = "";
         for(let i = 0; i < maxNrOfInputs; i++) {
             //if(optie)j=i;
             if (code[i] == currentChs[i]) {
                 feedback[j+previousChsIndex*maxNrOfInputs].className = "black";
-                forb += i;
+                str += i;
                 j++;continue;
             } 
         }
         for(let i = 0; i< maxNrOfInputs; i++) {
             //if(optie)j=i;
-            if (forb.indexOf(i) !== -1) continue;
+            if (str.indexOf(i) !== -1) continue;
             if (counts(currentChs[i],code) === counts(currentChs[i],currentChs) && counts(currentChs[i],code) !== 0) {
                 feedback[j+previousChsIndex*maxNrOfInputs].className = "white";
                 j++;continue;
             }
         }
     }
+
     //looks whether the input was a winner
     const chckChs = function() {
         for(let i = 0; i < maxNrOfInputs; i++) {
             if (code[i] !== currentChs[i]) return false;
         }
+    
         return true;
     }
 
@@ -98,23 +110,36 @@
         if (chckChs()) {
             window.alert("You won");
         } else {
-            console.log("AGAIN!!!")
+            if(currentChsIndex === maxAttempts -1) {
+                started = false;
+                gameBtn.setText = "Restart";
+            }
         }
         resetChs();
         previousChsIndex--;
     };
 
-
+    let started = false;
+    let ended = true;
     //main function
     const main = function() {
-        genRandCode();
-        for(let i =0 ; i<inputColour.length; i++) {
-            inputColour[i].addEventListener('click', ()=>{
-                makeChoice(colours[i]);
-            });
+        if (!started) {
+            reset();
+            genRandCode();
+            for(let i =0 ; i<inputColour.length; i++) {
+                inputColour[i].addEventListener('click', ()=>{
+                    makeChoice(colours[i]);
+                    ended = false;
+                    started = true;
+                });
+                gameBtn.innerText = "Submit Choice";
+            }
         }
-        
+        if (started) {
+            submitChoice();
+        }
+               
     }
-    document.querySelector("#start").addEventListener('click',main);
-    document.querySelector("#submitChoice").addEventListener('click',submitChoice);
+    const gameBtn = document.querySelector("#gameBtn")
+    gameBtn.addEventListener('click',main);
 })();
