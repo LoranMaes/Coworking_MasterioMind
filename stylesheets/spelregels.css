@@ -1,3 +1,9 @@
+/* Center title */
+h1 {
+    text-align: center;
+}
+
+
 /* Close button */
 button.close {
     margin: auto;
