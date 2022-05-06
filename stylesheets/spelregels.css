@@ -1,48 +1,46 @@
 /* Center title */
-h1 {
+h1.title {
     text-align: center;
 }
 
-
 /* Close button */
-button.close {
-    margin: auto;
+button.main {
+    padding: 0;
+    padding-top: 1rem;
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 4rem;
-    background-color: fuchsia;
-    background: fuchsia;
-    color: white;
     width: 75px;
     height: 75px;
     border-radius: 100px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    box-shadow: 0 0 25px var(--fuschia100Shadow);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    transition: 500ms;
     transform: rotate(45deg);
 }
 
-/* Close button - hover */
-button.close:hover {
-    background: var(--fuschia100);
-    color: white;
+/* Close button hover */
+button.main:hover {
+    padding: 0;
+    padding-top: 1rem;
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
     width: 75px;
     height: 75px;
     border-radius: 100px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    box-shadow: 0 0 25px var(--fuschia100Shadow);
-    text-shadow: 0 0 25px whitesmoke;
-    display: flex;
+    transform: rotate(45deg);
+    transition: all 250ms;
 }
 
+
+
 /* Rules section */
-section.rules {
+div.rulesBox {
     padding: 0 10%;
-    width: 30%;
+    width: 55%;
     border-radius: 25px;
     margin-right: auto;
     margin-left: auto;
@@ -52,7 +50,10 @@ section.rules {
 }
 
 /* Close button display */
-button {
+button {    
+    padding: 0;
+    margin-right: 10rem;
+    margin: auto;
     background-color: fuchsia;
     background: fuchsia;
     color: white;
@@ -62,6 +63,9 @@ button {
     align-items: center;
     height: 200px;
 }
+
+
+
 
 /* Copyright paragraph */
 p.small {
