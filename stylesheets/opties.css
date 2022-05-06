@@ -1,0 +1,205 @@
+h1 {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    margin: 0;
+}
+
+.kader {
+    padding: 0 10%;
+    width: 60%;
+    border-radius: 25px;
+    margin-right: auto;
+    margin-left: auto;
+    background: rgba(124, 210, 247, 0.5);
+    box-shadow: 0 0 25px rgba(124, 210, 247);
+}
+
+.bovensteVier div {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.marginOnder {
+    margin-bottom: 32px;
+}
+
+.marginOnder p {
+    color: white;
+    font-size: 32px;
+    font-weight: bolder;
+    align-content: flex-start;
+}
+
+.center {
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.center div {
+    margin: 12px 0;
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+}
+
+.copyright {
+    margin-top: 24px;
+    text-align: center;
+}
+
+
+
+/*input voor gebruikersnaam*/
+
+input[type=text] {
+    background: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a, #FBB03B);
+    color: white;
+    width: 20vw;
+    height: 30px;
+    border: 0;
+    border-radius: 100px;
+    padding-left: 10px;
+}
+
+.tekxtInBox {
+    background: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a, #FBB03B);
+    padding-top: 5px;
+    font-size: 24px !important;
+    width: 8vw;
+    border-radius: 100px;
+    text-align: center;
+}
+
+/* de slider */
+
+.slider {
+    -webkit-appearance: none;
+    width: 20vw;
+    height: 30px;
+    border-radius: 100px;
+    background: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a, #FBB03B);
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    box-shadow: var(--fuschia100);
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background: white;
+    cursor: pointer;
+}
+
+
+.toggleButton input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.range-wrap {
+    position: relative;
+}
+
+.getalBovenSlider {
+    color: white;
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translateX(-50%);
+}
+
+/* de toggle knop */
+
+#muziekstatus {
+    margin-left: 12px;
+    font-size: 12px;
+}
+
+.toggleButton {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    cursor: pointer;
+    margin-top: 50%;
+    margin-bottom: auto;
+    background: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a, #FBB03B);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.toggleButton:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+
+input:checked + .toggleButton:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.toggleButton.round {
+    border-radius: 34px;
+}
+
+.toggleButton.round:before {
+    border-radius: 50%;
+}
+
+/*social media links*/
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 2vw;
+}
+
+.socialLinks {
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    padding-right: 2vw;
+}
+
+.socialLinks:hover {
+    opacity: 0.7;
+}
+
+.discord {
+    background: #5865F2;
+    color: white;
+    padding-left: 0.5vw;
+}
+
+.twitter {
+    background: #00AEEF;
+    color: white;
+    padding-left: 0.5vw;
+}
+

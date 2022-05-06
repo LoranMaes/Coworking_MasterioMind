@@ -22,6 +22,7 @@ body{
     background-color: var(--background);
     color: var(--primary);
     overflow: hidden;
+    
 }
 
 h1{
@@ -260,6 +261,8 @@ section.rules {
 .background-animations .small:nth-of-type(5)::after{
     animation: rectanglesMoveSmallFour 30s linear infinite;
 }
+
+
   
   @keyframes rectanglesMoveBig {
     0% {
