@@ -92,6 +92,7 @@ input[type=text]:valid{
     box-shadow: 0 0 7px 5px rgba(237, 110, 160, .5);
 }
 
+
 /* de slider */
 
 .slider {
@@ -200,18 +201,15 @@ a {
 }
 
 img {
-    width: 2vw;
+    width: 3vw;
 }
 
 .socialLinks {
     border-radius: 100px;
     display: flex;
     align-items: center;
-    padding-right: 2vw;
-}
-
-.socialLinks:hover {
-    opacity: 0.7;
+    padding: 1rem 3rem;
+    animation: but;
 }
 
 .discord {
@@ -220,9 +218,22 @@ img {
     padding-left: 0.5vw;
 }
 
+.discord:hover {
+    animation: buttonAnimation 500ms forwards linear;
+    background: #4f5bdf;
+    cursor: pointer;
+    box-shadow: 0 0 25px #4d5bf8;
+}
+
 .twitter {
-    background: #00AEEF;
+    background: #08a5df;
     color: white;
     padding-left: 0.5vw;
 }
 
+.twitter:hover {
+    animation: buttonAnimation 500ms forwards linear;
+    background: #0990c1;
+    cursor: pointer;
+    box-shadow: 0 0 25px #0990c1;
+}
