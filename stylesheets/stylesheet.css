@@ -49,6 +49,11 @@ h1.title{
     text-shadow: 0px 4px var(--blackShadow);
 }
 
+h1.title.options{
+    margin-bottom: 2rem;
+    margin-top: 4rem;
+}
+
 button{
     border: none;
     border-radius: 50rem;
@@ -79,33 +84,11 @@ button.main:hover{
     animation: buttonAnimation 500ms forwards linear;
 }
 
-button.close {
-    background-color: #EF5DA8;
-    background: #EF5DA8;
-    color: white;
-    width: 75px;
-    height: 75px;
-    border-radius: 100px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    box-shadow: 0 0 25px rgb(184, 21, 184);
-    display: inline-block;
-    transform: rotate(45deg); 
-}
-
-button.close:hover {
-    background: #b93177;
-    color: white;
-    width: 75px;
-    height: 75px;
-    border-radius: 100px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    box-shadow: 0 0 25px rgb(184, 21, 184);
-    text-shadow: 0 0 25px whitesmoke;
-    display: inline-block;
+button.close{
+    width: 4rem;
+    height: 4rem;
+    padding: .5rem 1rem;
+    border-radius: 50rem;
 }
 
 section.rules {
