@@ -1,13 +1,8 @@
 body {
     background-color: #5BAFD3;
 }
-canvas {
-    width: 80vw;
-    height: 80vh;
-    margin: 2rem auto;
-    position: relative;
-}
-body>div {
+
+main>div {
     position: relative;
     display: flex;
     justify-content: center;
@@ -38,16 +33,16 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    width: min(7.5vw, 4rem);
+    width: max(5vw, 5rem);
     height: 51vh;
     margin-top: 9vh;
 }
 #mainBox {
-    width: min(30vw,18rem);
+    width: max(25rem,25vw);
     height: 60vh;
 }
 #colours {
-    width: min(7.5vw, 4rem);
+    width: max(5rem, 5vw);
     height: 51vh;
     margin-top: 9vh;
     display: flex;
@@ -56,7 +51,7 @@ section {
     align-items: center;
 }
 #guess {
-    width: min(30vw,18rem);
+    width: max(25rem,25vw);
     height: 9vh;
     position: absolute;
     bottom: -12vh; 

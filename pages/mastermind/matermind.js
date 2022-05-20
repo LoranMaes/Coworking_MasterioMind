@@ -5,6 +5,7 @@
 
     //creating eventListeners for the players choice
    const inputColour = document.querySelectorAll(".inputColour");
+   const inputColourArea = document.querySelector("#colours");
 
     
     //getting all the choices that te user can make or has made
@@ -34,9 +35,16 @@
 
     //reaction to the colours the user chooses
     const makeChoice = function(colour) {
-        currentChs[currentChsIndex] = colour;
-        currentChsDisp[currentChsIndex].className = colour;
-        currentChsIndex++;
+        try {
+            if(currentChs === maxNrOfInputs) throw Error("Je mag maar 4 kleuren ingeven");
+            else {
+                currentChs[currentChsIndex] = colour;
+                currentChsDisp[currentChsIndex].className = colour;
+                currentChsIndex++;
+            }
+        } catch(err) {
+            console.log(err);
+        }
     }
 
     //changing playing board css so the previous choices reflect the actual prev choices
@@ -54,32 +62,51 @@
         }
         currentChsIndex = 0;
     }
+    //resets whole board
+    const reset = function() {
+        for(let i=0;i<maxNrOfInputs;i++){
+            for(let j=0; j<maxAttempts; j++) {
+                previousChsDisp[i+j*maxNrOfInputs].className = '';
+                feedback[i+j*maxNrOfInputs].className = '';
+            }  
+        }
+        for(let i =0 ; i<inputColour.length; i++) {
+            inputColour[i].removeEventListener("click",()=>{
+                makeChoice(colours[i]);
+            });
+        }
+
+        previousChsIndex = maxAttempts -1;
+    }
     //gives feedback to user
+    //TO DO:: FIX LOGIC OF FEEDBACK
     const feedbackFctn = function() {
         let j = 0;
-        let forb = "";
+        let str = "";
         for(let i = 0; i < maxNrOfInputs; i++) {
             //if(optie)j=i;
             if (code[i] == currentChs[i]) {
                 feedback[j+previousChsIndex*maxNrOfInputs].className = "black";
-                forb += i;
+                str += i;
                 j++;continue;
             } 
         }
         for(let i = 0; i< maxNrOfInputs; i++) {
             //if(optie)j=i;
-            if (forb.indexOf(i) !== -1) continue;
+            if (str.indexOf(i) !== -1) continue;
             if (counts(currentChs[i],code) === counts(currentChs[i],currentChs) && counts(currentChs[i],code) !== 0) {
                 feedback[j+previousChsIndex*maxNrOfInputs].className = "white";
                 j++;continue;
             }
         }
     }
+
     //looks whether the input was a winner
     const chckChs = function() {
         for(let i = 0; i < maxNrOfInputs; i++) {
             if (code[i] !== currentChs[i]) return false;
         }
+    
         return true;
     }
 
@@ -96,25 +123,40 @@
         addPreviousChsToDisp();
         feedbackFctn()
         if (chckChs()) {
+            started = false;
+            gameBtn.innerText = "Restart";
             window.alert("You won");
-        } else {
-            console.log("AGAIN!!!")
+            
+        }
+        if(previousChsIndex === 0) {
+                started = false;
+                gameBtn.innerText = "Restart";
         }
         resetChs();
         previousChsIndex--;
     };
 
-
+    let started = false;
+    let ended = true;
     //main function
-    const main = function() {
-        genRandCode();
-        for(let i =0 ; i<inputColour.length; i++) {
-            inputColour[i].addEventListener('click', ()=>{
-                makeChoice(colours[i]);
-            });
-        }
-        
+    for(let i =0 ; i<inputColour.length; i++) {
+        inputColour[i].addEventListener('click', ()=>{
+            makeChoice(colours[i]);
+        });
     }
-    document.querySelector("#start").addEventListener('click',main);
-    document.querySelector("#submitChoice").addEventListener('click',submitChoice);
+    const main = function() {
+        if (!started) {
+            reset();
+            genRandCode();
+            
+            ended = false;
+            started = true;
+            gameBtn.innerText = "Submit Choice";
+        } else if (started) {
+            submitChoice();
+        }
+               
+    }
+    const gameBtn = document.querySelector("#gameBtn")
+    gameBtn.addEventListener('click',main);
 })();
