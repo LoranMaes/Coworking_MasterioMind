@@ -2,11 +2,31 @@
 
 (function (){
     const back = document.querySelector("#back-to-home")
+    const audio = new Audio("../../media/MusicGame.mp3")
+    const name = document.querySelector("#naam")
+    const allRanges = document.querySelectorAll(".range-wrap")
+    const muziek = document.querySelector("#muziek")
+    const text = document.querySelector("#muziekstatus")
+
+    let musicState = localStorage.getItem("music_state")
+    let username = localStorage.getItem("username")
+
+    name.value = username
+    if(musicState === "true"){
+        muziek.checked = true
+        text.innerHTML = "(enabled)"
+        audio.play()
+    }
+    else{
+        muziek.checked = false
+        text.innerHTML = "(disabled)"
+        audio.pause()
+    }
+
     back.addEventListener("click", () => {
         window.location = "../../"
     })
 
-    const allRanges = document.querySelectorAll(".range-wrap");
     allRanges.forEach(wrap => {
         const range = wrap.querySelector(".range");
         const bubble = wrap.querySelector(".getalBovenSlider");
@@ -17,40 +37,37 @@
         setBubble(range, bubble);
     });
 
-    let audio = document.getElementById("audio");
-
     function setBubble(range, bubble) {
-        let audio = document.getElementById("audio");
+        const backgroundColor = document.querySelector("#myRange")
         const val = range.value;
         const min = range.min ? range.min : 0;
         const max = range.max ? range.max : 100;
         const newVal = Number(((val - min) * 100) / (max - min));
         bubble.innerHTML = val;
         bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
-        console.log(newVal/100);
         audio.volume = newVal/100;
-        
-        const backgroundColor = document.querySelector("#myRange")
         backgroundColor.style.backgroundPosition = `${newVal}% 0`
-
         bubble.innerHTML = val;
-        
         bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
     }
 
 
-    document.getElementById("muziek").addEventListener("click", e => {let checkBox = document.getElementById("muziek");
-        let text = document.getElementById("muziekstatus");
-        
-
-        if (checkBox.checked === true){
+    muziek.addEventListener("click", e => {
+        if (muziek.checked === true){
             text.innerHTML = "(enabled)";
             audio.play();
+            localStorage.setItem("music_state", true)
         }
         else {
             text.innerHTML = "(disabled)";
             audio.pause();
-            audio.currentTime = 0;
+            localStorage.setItem("music_state", false)
+        }
+    })
+
+    name.addEventListener("keypress", (e) => {
+        if(e.key === "Enter"){
+            localStorage.setItem("username", name.value)
         }
     })
 })()
