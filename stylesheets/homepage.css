@@ -7,3 +7,9 @@
     flex-direction: column;
     gap: 3.6rem;
 }
+
+#label_for_lang{
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+}

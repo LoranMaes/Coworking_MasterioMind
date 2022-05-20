@@ -54,7 +54,8 @@ h1.title.options{
     margin-top: 4rem;
 }
 
-button{
+button,
+#taal_btn{
     border: none;
     border-radius: 50rem;
 
@@ -65,10 +66,12 @@ button{
 
     text-shadow: 1px 0 var(--blackShadow);
     font-weight: 600;
+    text-align: left;
     cursor: pointer;
 }
 
-button.main{
+button.main,
+#taal_btn{
     background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a , #FBB03B);
     box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
     background-size: 300% 100%;
@@ -79,7 +82,8 @@ button.main{
     transition: all 500ms;
 }
 
-button.main:hover{
+button.main:hover,
+#taal_btn:hover{
     background-position: 100% 0;
     animation: buttonAnimation 500ms forwards linear;
 }
