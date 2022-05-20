@@ -5,6 +5,7 @@
 
     //creating eventListeners for the players choice
    const inputColour = document.querySelectorAll(".inputColour");
+   const inputColourArea = document.querySelector("#colours");
 
     
     //getting all the choices that te user can make or has made
@@ -34,9 +35,16 @@
 
     //reaction to the colours the user chooses
     const makeChoice = function(colour) {
-        currentChs[currentChsIndex] = colour;
-        currentChsDisp[currentChsIndex].className = colour;
-        currentChsIndex++;
+        try {
+            if(currentChs === maxNrOfInputs) throw Error("Je mag maar 4 kleuren ingeven");
+            else {
+                currentChs[currentChsIndex] = colour;
+                currentChsDisp[currentChsIndex].className = colour;
+                currentChsIndex++;
+            }
+        } catch(err) {
+            console.log(err);
+        }
     }
 
     //changing playing board css so the previous choices reflect the actual prev choices
@@ -58,13 +66,20 @@
     const reset = function() {
         for(let i=0;i<maxNrOfInputs;i++){
             for(let j=0; j<maxAttempts; j++) {
-                previousChsDisp[j+i*maxNrOfInputs].className = '';
-                currentChsIndex = maxAttempts -1;
-                feedback[j + i*maxNrOfInputs].className = '';
+                previousChsDisp[i+j*maxNrOfInputs].className = '';
+                feedback[i+j*maxNrOfInputs].className = '';
             }  
         }
+        for(let i =0 ; i<inputColour.length; i++) {
+            inputColour[i].removeEventListener("click",()=>{
+                makeChoice(colours[i]);
+            });
+        }
+
+        previousChsIndex = maxAttempts -1;
     }
     //gives feedback to user
+    //TO DO:: FIX LOGIC OF FEEDBACK
     const feedbackFctn = function() {
         let j = 0;
         let str = "";
@@ -108,12 +123,14 @@
         addPreviousChsToDisp();
         feedbackFctn()
         if (chckChs()) {
+            started = false;
+            gameBtn.innerText = "Restart";
             window.alert("You won");
-        } else {
-            if(currentChsIndex === maxAttempts -1) {
+            
+        }
+        if(previousChsIndex === 0) {
                 started = false;
-                gameBtn.setText = "Restart";
-            }
+                gameBtn.innerText = "Restart";
         }
         resetChs();
         previousChsIndex--;
@@ -122,20 +139,20 @@
     let started = false;
     let ended = true;
     //main function
+    for(let i =0 ; i<inputColour.length; i++) {
+        inputColour[i].addEventListener('click', ()=>{
+            makeChoice(colours[i]);
+        });
+    }
     const main = function() {
         if (!started) {
             reset();
             genRandCode();
-            for(let i =0 ; i<inputColour.length; i++) {
-                inputColour[i].addEventListener('click', ()=>{
-                    makeChoice(colours[i]);
-                    ended = false;
-                    started = true;
-                });
-                gameBtn.innerText = "Submit Choice";
-            }
-        }
-        if (started) {
+            
+            ended = false;
+            started = true;
+            gameBtn.innerText = "Submit Choice";
+        } else if (started) {
             submitChoice();
         }
                
