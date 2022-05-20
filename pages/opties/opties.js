@@ -46,6 +46,7 @@
         bubble.innerHTML = val;
         bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
         audio.volume = newVal/100;
+        localStorage.setItem("volume", audio.volume)
         backgroundColor.style.backgroundPosition = `${newVal}% 0`
         bubble.innerHTML = val;
         bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
