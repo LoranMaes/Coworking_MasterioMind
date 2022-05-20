@@ -19,7 +19,7 @@
 <header>
 </header>
 <main>
-    <h1 class="title options">OPTIES</h1>
+    <h1 class="title">OPTIES</h1>
 
     <div class="kader">
         <div class="bovensteVier">
@@ -36,19 +36,29 @@
             </div>
 
             <div class="marginOnder">
-                <p>Volume</p>
-                
+                <div class="spelers">
+                    <p >Aantal spelers</p>
+                    <p id="spelerstatus">(één)</p>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" class="hidden" id="spelers" >
+                    <span class="toggleButton round"></span>
+                </label>
+            </div>
+
+            <div class="marginOnder">
+                <label for="myRange"> Volume </label>
                 <div class="slidecontainer range-wrap">
-                    <label class="hidden" for="foo"> slider voor volume </label>
-                    <input type="range" name="foo" min="0" max="100" value="50" class="slider range" id="myRange">
+
+                    <input type="range" id="myRange" min="0" max="100" value="50" class="slider range" >
                     <output class="getalBovenSlider"></output>
                 </div>
             </div>
 
             <div class="marginOnder">
-                <p>Naam</p>
+                <label for="naam"> naam </label>
                 <div >
-                    <label class="hidden" for="naam">Gebruikersnaam</label>
+
                     <input type="text" name="naam" id="naam" autocomplete="given-name" required>
                 </div>
             </div>
