@@ -16,4 +16,6 @@
     opties.addEventListener("click", () => {
         window.location = "./pages/opties"
     })
+
+    console.log(taal.value)
 })()
