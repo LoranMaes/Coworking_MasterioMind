@@ -97,8 +97,10 @@
         feedbackFctn()
         if (chckChs()) {
             window.alert("You won");
-        } else {
-            console.log("AGAIN!!!")
+        }
+        if(previousChsIndex === 0) {
+                started = false;
+                gameBtn.innerText = "Restart";
         }
         resetChs();
         previousChsIndex--;
