@@ -1,7 +1,7 @@
 /* CHANGE THE ROOT VALUES */
 :root{
     --primary: #F5F5F5;
-    --background: #5BAFD3;
+    --background: #3f91b4;
     --fuschia100: #EF5DA8;
     --fuschia60: #FCDDEC;
     
@@ -49,7 +49,13 @@ h1.title{
     text-shadow: 0px 4px var(--blackShadow);
 }
 
-button{
+h1.title.options{
+    margin-bottom: 2rem;
+    margin-top: 4rem;
+}
+
+button,
+#taal_btn{
     border: none;
     border-radius: 50rem;
 
@@ -60,10 +66,12 @@ button{
 
     text-shadow: 1px 0 var(--blackShadow);
     font-weight: 600;
+    text-align: left;
     cursor: pointer;
 }
 
-button.main{
+button.main,
+#taal_btn{
     background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a , #FBB03B);
     box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
     background-size: 300% 100%;
@@ -74,38 +82,17 @@ button.main{
     transition: all 500ms;
 }
 
-button.main:hover{
+button.main:hover,
+#taal_btn:hover{
     background-position: 100% 0;
     animation: buttonAnimation 500ms forwards linear;
 }
 
-button.close {
-    background-color: #EF5DA8;
-    background: #EF5DA8;
-    color: white;
-    width: 75px;
-    height: 75px;
-    border-radius: 100px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    box-shadow: 0 0 25px rgb(184, 21, 184);
-    display: inline-block;
-    transform: rotate(45deg); 
-}
-
-button.close:hover {
-    background: #b93177;
-    color: white;
-    width: 75px;
-    height: 75px;
-    border-radius: 100px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    box-shadow: 0 0 25px rgb(184, 21, 184);
-    text-shadow: 0 0 25px whitesmoke;
-    display: inline-block;
+button.close{
+    width: 4rem;
+    height: 4rem;
+    padding: .5rem 1rem;
+    border-radius: 50rem;
 }
 
 section.rules {

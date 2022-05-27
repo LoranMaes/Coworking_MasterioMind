@@ -19,7 +19,7 @@
 <header>
 </header>
 <main>
-    <h1 class="title">Opties</h1>
+    <h1 class="title options">OPTIES</h1>
 
     <div class="kader">
         <div class="bovensteVier">
@@ -31,12 +31,25 @@
                 <label class="switch">
                     <input type="checkbox" class="hidden" id="muziek" >
                     <span class="toggleButton round"></span>
+                    <audio id="audio"  src="../../media/MusicGame.mp3"></audio>
+                </label>
+            </div>
+
+            <div class="marginOnder">
+                <div class="spelers">
+                    <p >Aantal spelers</p>
+                    <p id="spelerstatus">(één)</p>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" class="hidden" id="spelers" >
+                    <span class="toggleButton round"></span>
                 </label>
             </div>
 
             <div class="marginOnder">
                 <p>Volume</p>
                 <div class="slidecontainer range-wrap">
+                    <label class="hidden" for="foo"> slider voor volume </label>
                     <input type="range" name="foo" min="0" max="100" value="50" class="slider range" id="myRange">
                     <output class="getalBovenSlider"></output>
                 </div>
@@ -46,7 +59,7 @@
                 <p>Naam</p>
                 <div >
                     <label class="hidden" for="naam">Gebruikersnaam</label>
-                    <input type="text" name="naam" id="naam" autocomplete="given-name">
+                    <input type="text" name="naam" id="naam" autocomplete="given-name" required>
                 </div>
             </div>
 
@@ -58,7 +71,7 @@
 
         <div class="center">
             <p>Volg ons ook op:</p>
-            <div>
+            <div >
                 <a href="https://twitter.com/?lang=nl" target="_blank">
                     <div class="socialLinks discord">
                         <img src="../../images/images/discord_logo.png" alt="logo discord">
@@ -68,7 +81,7 @@
 
                 <a href="https://twitter.com/?lang=nl" target="_blank">
                     <div class="socialLinks twitter">
-                        <img src="../../images/images/twitter_logo.png" alt="logo twitter">
+                        <img src="../../images/images/twitter_logo.jpg" alt="logo twitter">
                         <p >twitter</p>
                     </div>
                 </a>
@@ -78,7 +91,7 @@
         <!-- de knop zou nog moeten worden genomen van de spelregels pagina -->
 
         <div class="center">
-            <button id="back-to-home">X</button>
+            <button id="back-to-home" class="main close">X</button>
         </div>
 
         <p class="copyright">Copyright (c) - Coworking</p>
@@ -107,6 +120,7 @@
             <div class="small"></div>
         </div>
     </div>
+
 </main>
 <footer>
 </footer>
