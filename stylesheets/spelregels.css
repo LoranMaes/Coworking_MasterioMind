@@ -1,58 +1,67 @@
 /* Center title */
-h1 {
+h1.title {
     text-align: center;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+
+}
 
 /* Close button */
-button.close {
-    margin: auto;
-    margin-top: 4rem;
-    background-color: fuchsia;
-    background: fuchsia;
-    color: white;
-    width: 75px;
-    height: 75px;
-    border-radius: 100px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    box-shadow: 0 0 25px var(--fuschia100Shadow);
-    display: flex;
+button.main {
+    font-size: 6rem;
+    padding: 0;
+    padding-top: 1.2rem;
+    text-align: center;
     justify-content: center;
-    align-items: center;
-    transform: rotate(45deg);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+
 }
 
-/* Close button - hover */
-button.close:hover {
-    background: var(--fuschia100);
-    color: white;
-    width: 75px;
-    height: 75px;
-    border-radius: 100px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    box-shadow: 0 0 25px var(--fuschia100Shadow);
-    text-shadow: 0 0 25px whitesmoke;
-    display: flex;
+/* Close button hover */
+button.main:hover {
+    padding: 0;
+    padding-top: 1rem;
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+    width: 90px;
+    height: 90px;
 }
+
+div.button-hover:hover button.main {
+    transition: transform .5s;
+}
+
 
 /* Rules section */
-section.rules {
+div.rulesBox {
     padding: 0 10%;
-    width: 30%;
+    height: 55%;
+    width: 55%;
     border-radius: 25px;
     margin-right: auto;
     margin-left: auto;
-    background: rgba(124, 210, 247, 0.5);
-    box-shadow: 0 0 25px rgba(124, 210, 247);
+    background: rgba(21, 72, 94, 0.25);
+    box-shadow: 0 0 15px 15px rgba(21, 72, 94, 0.15);
     justify-content: center;
+
 }
 
 /* Close button display */
 button {
+    padding: 0;
+    margin-right: 10rem;
+    margin: auto;
     background-color: fuchsia;
     background: fuchsia;
     color: white;
@@ -63,12 +72,16 @@ button {
     height: 200px;
 }
 
+
+
+
 /* Copyright paragraph */
 p.small {
     font-size: 2rem;
     text-align: center;
     padding-bottom: 1rem;
 }
+
 /* Rules paragraph */
 p {
     font-family: 'Grandstander', 'Sans-Serif';
@@ -78,7 +91,78 @@ p {
     padding-top: 50px;
     max-height: max-content;
     text-align: center;
-} 
+}
 
 
+
+/* Responsiveness */
+@media only screen and (max-width: 1800px) {
+
+
+    h1.title {
+        font-size: 4.7rem;
+    }
+    p {
+        font-size: 1.5rem;
+    }
+
+    p.small {
+        font-size: 1.5rem;
+    }
+
+    div.rulesBox {
+        width: 80%;
+        
+    }
+
+    button.main {
+        font-size: 4rem;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media only screen and (max-height: 800px) {
+    div.rulesBox {
+        width: 100%;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    p.small {
+        font-size: 1.2rem;
+    }
+
+    
+
+@media only screen and (max-height: 640px) {
+    div.rulesBox {
+        height: auto;
+    }
+
+    h1.title {
+        font-size: 3rem;
+    }
+
+    p {
+        font-size: 1rem;
+        padding-top: 20px;
+    }
+
+    p.small {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-height: 350px) and (max-width: 400px) {
+    p {
+        padding-top: 5px;
+    }
+
+   
+}
+
+}
 
