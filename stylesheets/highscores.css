@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    overflow: scroll;
 }
 
 
@@ -9,6 +8,10 @@ main {
     display: flex;
     flex-direction: column;
 
+}
+
+html {
+    overflow: auto;
 }
 
 div.button-hover {
@@ -89,6 +92,8 @@ img.trophy {
     display: table;
     clear: both;
 }
+
+
 
 @media screen and (max-width: 600px) {
     .column123 {
