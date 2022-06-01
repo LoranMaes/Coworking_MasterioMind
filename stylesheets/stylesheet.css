@@ -458,4 +458,465 @@ section.rules {
     100%{
         transform: scale(1.015);
     }
+=======
+/* CHANGE THE ROOT VALUES */
+:root{
+    --primary: #F5F5F5;
+    --background: #3f91b4;
+    --fuschia100: #EF5DA8;
+    --fuschia60: #FCDDEC;
+    
+    --blackShadow: rgba(0, 0, 0, .25);
+    --fuschia100Shadow: rgba(239, 93, 168, 0.2);
+    --fuschia60Shadow: rgba(252, 221, 236, 0.5);
+}
+
+/* MAIN CSS FILE */
+html{
+    font-size: 62.5%;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Grandstander', 'Sans-Serif';
+    background-color: var(--background);
+    color: var(--primary);
+    overflow: hidden;
+    
+}
+
+h1{
+    font-size: 10rem;
+    text-align: center;
+}
+
+p{
+    font-size: 1.6rem;
+}
+
+p.small {
+    font-size: 10px;
+    text-align: center;
+    padding-bottom: 12px;
+
+}
+
+/* BACKGROUND */
+
+/* COMPONENTS */
+/* Onderstaande button bevat de klasse main */
+h1.title{
+    text-shadow: 0px 4px var(--blackShadow);
+}
+
+h1.title.options{
+    margin-bottom: 2rem;
+    margin-top: 4rem;
+}
+
+button,
+#taal_btn{
+    border: none;
+    border-radius: 50rem;
+
+    color: var(--primary);
+    background: var(--fuschia100);
+    font-size: 2.4rem;
+    transition: 250ms;
+
+    text-shadow: 1px 0 var(--blackShadow);
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+}
+
+button.main,
+#taal_btn{
+    background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a , #FBB03B);
+    box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+    background-size: 300% 100%;
+
+    padding: 1rem 5rem;
+    width: fit-content;
+    margin: 0 auto;
+    transition: all 500ms;
+}
+
+button.main:hover,
+#taal_btn:hover{
+    background-position: 100% 0;
+    animation: buttonAnimation 500ms forwards linear;
+}
+
+button.close{
+    width: 4rem;
+    height: 4rem;
+    padding: .5rem 1rem;
+    border-radius: 50rem;
+}
+
+section.rules {
+    margin: auto;
+    text-align: center;
+    background-color: rgba(218, 195, 199, .5);
+    box-shadow: 0 0 25px rgb(67, 169, 228);
+    padding-top: 6px;
+    border-radius: 10px;
+}
+
+/* ACHTERGROND ANIMATIONS */
+.background-animations{
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    filter: blur(.25rem);
+}
+
+.background-animations,
+.background-animations > .big,
+.background-animations > .medium,
+.background-animations > .small{
+    pointer-events: none;
+    z-index: -10;
+}
+
+
+.background-animations .big{
+    opacity: 1;
+    width: 6rem;
+    height: 6rem;
+    background: var(--primary);
+    mix-blend-mode: screen;
+    animation: rectanglesMoveBig 450s linear infinite;
+    box-shadow: 0 0 1rem .5rem var(--primary);
+}
+.background-animations .big::after{
+    content: "";
+    position: relative;
+    width: 6rem;
+    height: 6rem;
+    top: 100vh;
+    background: var(--primary);
+    mix-blend-mode: screen;
+    animation: rectanglesMoveBig 450s linear infinite;
+    box-shadow: 0 0 1rem .5rem var(--primary);
+}
+.background-animations .big:nth-of-type(2){
+    animation: rectanglesMoveBigOne 450s linear infinite;
+}
+.background-animations .big:nth-of-type(2)::after{
+    animation: rectanglesMoveBigOne 450s linear infinite;
+}
+.background-animations .big:nth-of-type(3){
+    animation: rectanglesMoveBigTwo 250s linear infinite;
+}
+.background-animations .big:nth-of-type(3)::after{
+    animation: rectanglesMoveBigTwo 250s linear infinite;
+}
+
+.background-animations .medium{
+    opacity: 1;
+    width: 4.5rem;
+    height: 4.5rem;
+    background: var(--primary);
+    mix-blend-mode: screen;
+    animation: rectanglesMoveMed 200s linear infinite;
+    box-shadow: 0 0 1rem .5rem var(--primary);
+}
+
+.background-animations .medium::after{
+    content: "";
+    position: relative;
+    width: 4.5rem;
+    height: 4.5rem;
+    top: 100vh;
+    background: var(--primary);
+    mix-blend-mode: screen;
+    animation: rectanglesMoveMed 200s linear infinite;
+    box-shadow: 0 0 1rem .5rem var(--primary);
+}
+
+.background-animations .medium:nth-of-type(2){
+    animation: rectanglesMoveMedOne 200s linear infinite;
+}
+.background-animations .medium:nth-of-type(2)::after{
+    animation: rectanglesMoveMedOne 200s linear infinite;
+}
+.background-animations .medium:nth-of-type(3){
+    animation: rectanglesMoveMedTwo 200s linear infinite;
+}
+.background-animations .medium:nth-of-type(3)::after{
+    animation: rectanglesMoveMedTwo 200s linear infinite;
+}
+.background-animations .medium:nth-of-type(4){
+    animation: rectanglesMoveMedThree 150s linear infinite;
+}
+.background-animations .medium:nth-of-type(4)::after{
+    animation: rectanglesMoveMedThree 150s linear infinite;
+}
+.background-animations .medium:nth-of-type(5){
+    animation: rectanglesMoveMedFour 100s linear infinite;
+}
+.background-animations .medium:nth-of-type(5)::after{
+    animation: rectanglesMoveMedFour 100s linear infinite;
+}
+
+.background-animations .small{
+    opacity: 1;
+    width: 1rem;
+    height: 1rem;
+    background: var(--primary);
+    mix-blend-mode: screen;
+    animation: rectanglesMoveSmall 50s linear infinite;
+    box-shadow: 0 0 1rem .5rem var(--primary);
+}
+
+.background-animations .small::after{
+    content: "";
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    top: 100vh;
+    background: var(--primary);
+    mix-blend-mode: screen;
+    animation: rectanglesMoveSmall 50s linear infinite;
+    box-shadow: 0 0 1rem .5rem var(--primary);
+}
+
+.background-animations .small:nth-of-type(2){
+    animation: rectanglesMoveSmallOne 50s linear infinite;
+}
+.background-animations .small:nth-of-type(2)::after{
+    animation: rectanglesMoveSmallOne 50s linear infinite;
+}
+.background-animations .small:nth-of-type(3){
+    animation: rectanglesMoveSmallTwo 50s linear infinite;
+}
+.background-animations .small:nth-of-type(3)::after{
+    animation: rectanglesMoveSmallTwo 50s linear infinite;
+}
+.background-animations .small:nth-of-type(4){
+    animation: rectanglesMoveSmallThree 40s linear infinite;
+}
+.background-animations .small:nth-of-type(4)::after{
+    animation: rectanglesMoveSmallThree 40s linear infinite;
+}
+.background-animations .small:nth-of-type(5){
+    animation: rectanglesMoveSmallFour 30s linear infinite;
+}
+.background-animations .small:nth-of-type(5)::after{
+    animation: rectanglesMoveSmallFour 30s linear infinite;
+}
+
+
+  
+  @keyframes rectanglesMoveBig {
+    0% {
+        transform: translateY(-40vh) translateX(50vw);
+        opacity: 0%;
+    }
+    10%{
+        opacity: 100%;
+    }
+    50%{
+        transform: translateY(-50vh) translateX(45vw);
+    }
+    100% {
+        transform: translateY(-100vh) translateX(50vw);
+    }
+  }
+  @keyframes rectanglesMoveBigOne {
+    0% {
+        transform: translateY(-80vh) translateX(20vw);
+        opacity: 0%;
+    }
+    10%{
+        opacity: 100%;
+    }
+    50%{
+        transform: translateY(-95vh) translateX(15vw);
+    }
+    100% {
+        transform: translateY(-100vh) translateX(22.5vw);
+    }
+  }
+  @keyframes rectanglesMoveBigTwo {
+    0% {
+        transform: translateY(-35vh) translateX(80vw);
+        opacity: 0%;
+    }
+    10%{
+        opacity: 100%;
+    }
+    50%{
+        transform: translateY(-50vh) translateX(82.5vw);
+    }
+    100% {
+        transform: translateY(-100vh) translateX(77.5vw);
+    }
+  }
+  @keyframes rectanglesMoveMed {
+    0% {
+        transform: translateY(-12vh) translateX(25vw);
+        opacity: 0%;
+    }
+    10%{
+        opacity: 100%;
+    }
+    50%{
+        transform: translateY(-40vh) translateX(35vw);
+    }
+    100% {
+        transform: translateY(-100vh) translateX(25vw);
+    }
+  }
+  @keyframes rectanglesMoveMedOne {
+    0% {
+        transform: translateY(-34vh) translateX(5vw);
+        opacity: 0%;
+    }
+    10%{
+        opacity: 100%;
+    }
+    50%{
+        transform: translateY(-40vh) translateX(15vw);
+    }
+    100% {
+        transform: translateY(-100vh) translateX(9vw);
+    }
+  }
+  @keyframes rectanglesMoveMedTwo {
+    0% {
+        transform: translateY(3vh) translateX(67vw);
+        opacity: 0%;
+    }
+    10%{
+        opacity: 100%;
+    }
+    50%{
+        transform: translateY(-40vh) translateX(53vw);
+    }
+    100% {
+        transform: translateY(-100vh) translateX(60vw);
+    }
+  }
+  @keyframes rectanglesMoveMedThree {
+    0% {
+        transform: translateY(-14vh) translateX(32vw);
+        opacity: 0%;
+    }
+    10%{
+        opacity: 100%;
+    }
+    50%{
+        transform: translateY(-55vh) translateX(45vw);
+    }
+    100% {
+        transform: translateY(-100vh) translateX(39vw);
+    }
+  }
+  @keyframes rectanglesMoveMedFour {
+    0% {
+        transform: translateY(8vh) translateX(12vw);
+        opacity: 0%;
+    }
+    10%{
+        opacity: 100%;
+    }
+    50%{
+        transform: translateY(-40vh) translateX(8vw);
+    }
+    100% {
+        transform: translateY(-100vh) translateX(10vw);
+    }
+  }
+  @keyframes rectanglesMoveSmall {
+    0% {
+        transform: translateY(0vh) translateX(75vw);
+        opacity: 0%;
+    }
+    10%{
+        opacity: 100%;
+    }
+    50%{
+        transform: translateY(-65vh) translateX(90vw);
+    }
+    100% {
+        transform: translateY(-100vh) translateX(85vw);
+    }
+}
+@keyframes rectanglesMoveSmallOne {
+  0% {
+      transform: translateY(0vh) translateX(-3vw);
+      opacity: 0%;
+  }
+  10%{
+      opacity: 100%;
+  }
+  50%{
+      transform: translateY(-50vh) translateX(13vw);
+  }
+  100% {
+      transform: translateY(-100vh) translateX(5vw);
+  }
+}
+@keyframes rectanglesMoveSmallTwo {
+  0% {
+      transform: translateY(0vh) translateX(60vw);
+      opacity: 0%;
+  }
+  10%{
+      opacity: 100%;
+  }
+  50%{
+      transform: translateY(-45vh) translateX(68vw);
+  }
+  100% {
+      transform: translateY(-100vh) translateX(59vw);
+  }
+}
+@keyframes rectanglesMoveSmallThree {
+  0% {
+      transform: translateY(10vh) translateX(4vw);
+      opacity: 0%;
+  }
+  10%{
+      opacity: 100%;
+  }
+  50%{
+      transform: translateY(-60vh) translateX(13vw);
+  }
+  100% {
+      transform: translateY(-100vh) translateX(8vw);
+  }
+}
+@keyframes rectanglesMoveSmallFour {
+  0% {
+      transform: translateY(-10vh) translateX(55vw);
+      opacity: 0%;
+  }
+  10%{
+      opacity: 100%;
+  }
+  50%{
+      transform: translateY(-87vh) translateX(47vw);
+  }
+  100% {
+      transform: translateY(-100vh) translateX(50vw);
+  }
+}
+
+@keyframes buttonAnimation {
+    0%{
+        transform: scale(1);
+        background-size: 300% 100%;
+    }
+    50%{
+        transform: scale(1.05);
+    }
+    100%{
+        transform: scale(1.015);
+    }
 }
