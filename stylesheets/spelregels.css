@@ -166,3 +166,155 @@ p {
 
 }
 
+=======
+/* Center title */
+h1.title {
+    text-align: center;
+    font-size: 5rem;
+}
+
+/* Copyright paragraph */
+p.small {
+    font-size: 1.2rem;
+    text-align: center;
+    padding-bottom: 0.3rem;
+}
+
+/* Rules paragraph */
+p {
+    width: auto;
+    font-family: 'Grandstander', 'Sans-Serif';
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    padding-top: 2rem;
+    max-height: max-content;
+    text-align: center;
+}
+
+
+/* Main */
+main {
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* Close button */
+button.main {
+    font-size: 3.5rem;
+    padding: 0;
+    padding-top: 0.8rem;
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 100px;
+
+}
+
+/* Close button hover */
+button.main:hover {
+    font-size: 4rem;
+    padding: 0;
+    padding-top: 1.2rem;
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+    width: 5.625rem;
+    height: 5.625rem;
+}
+
+div.button-hover:hover button.main {
+    transition: transform .5s;
+}
+
+/* Rules section */
+div.rulesBox {
+    padding: 2.5rem 5rem;
+    height: 55%;
+    width: fit-content;
+    border-radius: 25px;
+    margin-right: auto;
+    margin-left: auto;
+    background: rgba(21, 72, 94, 0.25);
+    box-shadow: 0 0 15px 15px rgba(21, 72, 94, 0.15);
+    justify-content: center;
+
+}
+
+
+/* Close button display */
+button {
+    padding: 0;
+    margin-right: 10rem;
+    margin: auto;
+    background-color: fuchsia;
+    background: fuchsia;
+    color: white;
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+
+
+/* Responsiveness  - Mobile First */
+
+
+@media screen and (min-width: 1280px) {
+    h1.title {
+        font-size: 8rem;
+        width: auto;
+        text-align: center;
+    }
+
+    p {
+        font-size: 3rem;
+        padding-top: 5rem;
+    }
+
+    p.small {
+        margin-top: -2.5rem;
+        font-size: 2rem;
+    }
+
+    button.main {
+        padding-top: 1.2rem;
+        font-size: 5rem;
+        width: 6.8rem;
+        height: 6.8rem;
+        margin-top: 4rem;
+        animation: but;
+    }
+
+    button.main:hover {
+        padding-top: 1.2rem;
+        font-size: 5rem;
+        width: 6.8rem;
+        height: 6.8rem;
+        margin-top: 4rem;
+        
+    }
+
+}
+
+
+/* Very small screens */
+
+@media screen and (max-width: 307px) {
+    p {
+        font-size: 1rem;
+    }
+
+    p.small {
+        font-size: 0.8rem;
+    }
+}

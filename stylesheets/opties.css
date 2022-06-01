@@ -160,13 +160,9 @@ input[type=text]:valid{
 
 /* de toggle knop */
 
-#muziekstatus {
+#muziekstatus, #spelerstatus {
     margin-left: 12px;
-    font-size: 24px;
-}
-
-#spelerstatus {
-    margin-left: 12px;
+    
     font-size: 24px;
 }
 
@@ -274,14 +270,9 @@ img {
        margin: 2% 0;
     }
 
-    #muziekstatus {
+    #muziekstatus, #spelerstatus {
         font-size: 12px;
     }
-
-    #spelerstatus {
-        font-size: 12px;
-    }
-
 
     .toggleButton{
         width: 60px;

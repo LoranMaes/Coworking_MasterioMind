@@ -13,6 +13,7 @@
     const previousChsDisp = document.querySelectorAll(".sections div");
     const currentChsDisp = document.querySelectorAll(".guess div");
     const feedback = document.querySelectorAll(".feedback div");
+    const solution = document.querySelectorAll("#solution div");
 
     //extra param
     const maxAttempts = 7;
@@ -31,24 +32,8 @@
     const genRandCode = function() {
         for (let i = 0; i < maxNrOfInputs; i++) {
             code[i] = colours[Math.floor(Math.random()*colours.length)];
-        } 
+        }
     }
-
-    //create custom colour code
-
-    const genCustomCode = function() {
-        makeChoice;
-        for(let i =0 ; i<inputColour.length; i++) {
-            code[i] = currentChs[i]
-            started = true;
-            gameBtn.innerText = "Submit Choice";
-            gameBtn.removeEventListener('click',genCustomCode);
-            gameBtn.addEventListener('click',mainIfTwoPlayers);
-        }   resetChs();
-
-    }
-
-   
     //reaction to the colours the user chooses
     const makeChoice = function(colour) {
         try {
@@ -70,11 +55,12 @@
         if (chckChs()) {
             started = false;
             gameBtn.innerText = "Restart";
-            window.alert("You won");
-            
+            showSolution();
+            window.alert("You won"); 
         }
         if(previousChsIndex === 0) {
                 started = false;
+                showSolution();
                 gameBtn.innerText = "Restart";
         }
         resetChs();
@@ -109,7 +95,7 @@
                 j++;continue;
             } 
         }
-        for (let i = 0; i < str.length; i++) {
+        for (let i = str.length-1; i >= 0; i--) {
             codeCopy.splice(str.charAt(i),1);
             currentChsCopy.splice(str.charAt(i),1);
         }
@@ -153,7 +139,12 @@
         for (const el of arr) el===value?amounts++:null;
         return amounts;
     }
-
+    //show solution
+    const showSolution = function() {
+        for (let i = 0; i < code.length; i++) {
+            solution[i].className = code[i];
+        }
+    }
 
     let started = false;
     //let ended = true;
@@ -163,42 +154,16 @@
         if (!started) {
             reset();
             genRandCode();
-            
             //ended = false;
             started = true;
             gameBtn.innerText = "Submit Choice";
-        } else if (started) {
+        } else if (started && currentChsIndex === 4) {
             submitChoice();
         }
                
     }
-
-
-    //main function if there are two players
-    const mainIfTwoPlayers = function(){
-        if (!started) {
-            reset();
-            submitChoice;
-            gameBtn.innerText = "Enter Secret Code";
-            gameBtn.removeEventListener('click',mainIfTwoPlayers);
-            gameBtn.addEventListener('click',genCustomCode);
-        } else if (started){
-            submitChoice();
-        }         
-    }
-
-
-    //determine amount of players and which main two choose
-    let playerAmount = localStorage.getItem("two_players")
-    let mainFunction = main;
-
-     if (playerAmount === "true"){
-        mainFunction = mainIfTwoPlayers
-    } 
-    
-
     //eventlisteners that make the game playable
-    gameBtn.addEventListener('click',mainFunction);
+    gameBtn.addEventListener('click',main);
     for(let i = 0; i < colours.length; i++) {
         inputColour[i].addEventListener('click', ()=>{
             makeChoice(colours[i])
