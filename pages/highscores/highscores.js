@@ -8,6 +8,16 @@
     })
 })()
 
+const req = require('express/lib/request')
+const mysql = require('mysql')
+
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'highscores',
+    password: 'Azerty123!',
+    database: 'highscores'
+})
+
 // Highscore Name variables
 const firstplaceName = document.getElementById("firstplaceName");
 const secondplaceName = document.getElementById("secondplaceName");
@@ -27,11 +37,9 @@ sixthplaceName.textContent = 'Player 6';
 seventhplaceName.textContent = 'Player 7';
 
 // Highscore Score variables
-
 const firstplaceScore = document.getElementById("firstplaceScore");
 const secondplaceScore = document.getElementById("secondplaceScore");
 const thirdplaceScore = document.getElementById("thirdplaceScore");
-
 
 // Highscore Scores
 firstplaceScore.innerHTML= `<img class="trophy" src="../../images/images/trophy.png" alt="icon trophy">
@@ -43,8 +51,33 @@ secondplaceScore.innerHTML = `<img class="trophy" src="../../images/images/troph
 thirdplaceScore.innerHTML = `<img class="trophy" src="../../images/images/trophy.png" alt="icon trophy">
 10`;
 
+
+
+
+
 // Highscores from database
 
+connection.connect(function (err) {
+    if (err) throw err;
+    connection.query('SELECT * FROM highscores', function (err, result) {
+        if (err) throw err;
+        console.log(result)
+    })
+
+
+
+    let updateQuery = connection.query("INSERT INTO `highscores` (name, score) VALUES ('"+firstplaceName+"','"+ firstplaceScore+"')");
+
+    connection.query(updateQuery, function (err, result) {
+        if (err) throw err;
+        console.log(result);
+    })
+})
+    
+
+
+// End database connection
+connection.end()
 
 
 
