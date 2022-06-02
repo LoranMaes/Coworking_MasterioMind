@@ -26,7 +26,34 @@ const fourthplaceName = document.getElementById("fourthplaceName");
 const fifthplaceName = document.getElementById("fifthplaceName");
 const sixthplaceName = document.getElementById("sixthplaceName");
 const seventhplaceName = document.getElementById("seventhplaceName");
+const scoresList = document.querySelector('#scoresList');
+const MAX_HIGH_SCORES = 1000;
 
+const isStorage = 'undefined' !== typeof localStorage;
+if (isStorage && localStorage.getItem('highscores')) {
+    elements.scores = localStorage.getItem('highscores').split(',');
+
+}
+
+function gameOver() {
+    elements.scores.unshift(elements.currentScores);
+    isStorage && localStorage.setItem('highscores', elements.scores);
+}
+
+function openScores() {
+    let htmlTemplate = '';
+    let _this = this;
+
+    elements.scores.length = 5;
+    for (let i = 0; i < 5; i++) {
+        htmlTemplate += `<p id="secondplaceScore">${'undefined' == typeof elements.scores[i] ? '' : elements.scores[i]}</p>`;
+        scoresList.innerHTML = htmlTemplate;
+        if (gameOver) {
+            _this = scoresLnk;
+        }
+    }
+    
+}
 // Highscore Names
 firstplaceName.textContent = 'Player 1';
 secondplaceName.textContent = 'Player 2';
