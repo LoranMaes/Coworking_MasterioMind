@@ -38,6 +38,10 @@
     let currentChsIndex = 0;
     let previousChsIndex = maxAttempts-1;
 
+    backToHome.addEventListener("click", () => {
+        window.location = "../../"
+    })
+
     //creating a random colour code
     const genRandCode = () => {
         for (let i = 0; i < maxNrOfInputs; i++) {
