@@ -1,8 +1,15 @@
 'use strict';
 
 (function() {
-    let countAttempts = -1;
-    let highScore = 8;
+
+    //setting maximum highscores
+    const countAttempts = -1;
+    const highScore = 8;
+
+    //getting oldest highscore of user
+    let getPreviousHighscore = localStorage.getItem("highscore");
+
+
 
 
     //const backToHome = document.querySelector("#")
@@ -29,11 +36,11 @@
     const colours = ["blue","green","yellow","red"];
     const code = [];
     const currentChs = Array.apply(null, Array(maxNrOfInputs)).map(function () {});;
+
     let currentChsIndex = 0;
     let previousChsIndex = maxAttempts-1;
 
-    // // resetting scores
-
+    //resetting highscores
     const resetHighscore = function() {
         highScore = 7;
         countAttempts = 0;
@@ -70,7 +77,12 @@
             started = false;
             gameBtn.innerText = "Restart";
             showSolution();
-            localStorage.setItem("highscore", highScore)
+            
+            // Only store highest score of user
+            if (highScore > getPreviousHighscore) {
+                localStorage.setItem("highscore", highScore)
+            } 
+            
             window.alert("You won"); 
 
            
@@ -175,6 +187,9 @@
             //ended = false;
             started = true;
             gameBtn.innerText = "Submit Choice";
+
+            // Counting highscores and number of attempts
+
         } else if (started && currentChsIndex === 4) {
             submitChoice();
             countAttempts += 1;
@@ -200,7 +215,7 @@
     }));
 
 
-    
+    //only counting scores when a non empty input is submitted
     gameBtn.addEventListener("click", function() {
             if (started && currentChsIndex === 4) {
                 countAttempts += 1;
@@ -212,6 +227,7 @@
             }
     });
 
+    
     
 
 })();

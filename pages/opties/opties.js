@@ -6,9 +6,13 @@
     const allRanges = document.querySelectorAll(".range-wrap")
     const muziek = document.querySelector("#muziek")
     const text = document.querySelector("#muziekstatus")
+    const score = document.getElementById("score");
 
     let musicState = localStorage.getItem("music_state")
     let username = localStorage.getItem("username")
+    let highscore = localStorage.getItem("highscore")
+    score.innerHTML = highscore;
+    
     
     name.value = username
     if(musicState === "true"){
