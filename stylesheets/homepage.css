@@ -1,5 +1,15 @@
+main{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+h1.title{
+    margin-top: 0;
+}
+
 .container{
-    width: fit-content;
+    margin: 0 auto;
 }
 
 .button-options{
@@ -13,3 +23,8 @@
     z-index: -1;
     position: absolute;
 }
+
+@media screen and (max-width: 400px) {
+    h1.title{
+        font-size: 5.2rem;
+    }
