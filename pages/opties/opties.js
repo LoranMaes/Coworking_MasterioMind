@@ -1,5 +1,4 @@
 "use strict";
-
 (function (){
     const back = document.querySelector("#back-to-home")
     const audio = new Audio("../../media/MusicGame.mp3")
@@ -71,3 +70,4 @@
             localStorage.setItem("username", name.value)
         }
     })
+})()
