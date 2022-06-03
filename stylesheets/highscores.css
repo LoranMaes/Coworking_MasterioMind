@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+}
+
+
+/* Main */
+main {
+    display: flex;
+    flex-direction: column;
+
+}
+
+html {
+    overflow: auto;
+}
+
+div.button-hover {
+    text-align: center;
+    font-size: 3.5rem;
+    padding-bottom: 1rem;
+}
+
+div.button-hover:hover button.main {
+    transition: transform .5s;
+}
+
+
+/* Copyright paragraph */
+p.small {
+    font-size: 1.2rem;
+    text-align: center;
+    padding-bottom: 0.3rem;
+}
+
+h1.title {
+    text-align: center;
+    font-size: 4rem;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+/* Highscores section */
+div.highscoresBox {
+    padding: 1rem 1rem;
+    height: 55%;
+    width: fit-content;
+    border-radius: 25px;
+    margin-right: auto;
+    margin-left: auto;
+    background: rgba(21, 72, 94, 0.25);
+    box-shadow: 0 0 15px 15px rgba(21, 72, 94, 0.15);
+    justify-content: center;
+
+}
+
+.column123 {
+    text-align: center;
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+}
+
+ hr  {
+    border: 5px solid #3f91b4;;
+    border-radius: 5px;
+}
+
+.column4567 {
+    text-align: center;
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+img.trophy {
+    width: 22px;
+    height: 20px;
+}
+
+
+.rowHighscores:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.rowOtherscores:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .column123 {
+        width: 100%;
+
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    body {
+        overflow: visible;
+    }
+
+    h1.title {
+        font-size: 8rem;
+        width: auto;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 3rem;
+        width: auto;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 3rem;
+        padding-top: 2rem;
+    }
+
+    p.small {
+        font-size: 2rem;
+    }
+
+
+
+}
