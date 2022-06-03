@@ -1,6 +1,10 @@
 'use strict';
 
 (function() {
+    let countAttempts = -1;
+    let highScore = 8;
+
+
     //const backToHome = document.querySelector("#")
     const gameBtn = document.querySelector("#gameBtn");
 
@@ -28,10 +32,20 @@
     let currentChsIndex = 0;
     let previousChsIndex = maxAttempts-1;
 
+    // // resetting scores
+
+    const resetHighscore = function() {
+        highScore = 7;
+        countAttempts = 0;
+    }
+
+
     //creating a random colour code
     const genRandCode = function() {
+
         for (let i = 0; i < maxNrOfInputs; i++) {
             code[i] = colours[Math.floor(Math.random()*colours.length)];
+            console.log(code);
         }
     }
     //reaction to the colours the user chooses
@@ -56,7 +70,10 @@
             started = false;
             gameBtn.innerText = "Restart";
             showSolution();
+            localStorage.setItem("highscore", highScore)
             window.alert("You won"); 
+
+           
         }
         if(previousChsIndex === 0) {
                 started = false;
@@ -153,12 +170,18 @@
     const main = function() {
         if (!started) {
             reset();
+            resetHighscore();
             genRandCode();
             //ended = false;
             started = true;
             gameBtn.innerText = "Submit Choice";
         } else if (started && currentChsIndex === 4) {
             submitChoice();
+            countAttempts += 1;
+            highScore -= 1;
+            console.log("Highscore " + highScore);
+            console.log("Attempts " + countAttempts);
+
         }
                
     }
@@ -175,4 +198,20 @@
             currentChsIndex--;
         }
     }));
+
+
+    
+    gameBtn.addEventListener("click", function() {
+            if (started && currentChsIndex === 4) {
+                countAttempts += 1;
+                highScore -= 1;
+                console.log("Highscore " + highScore);
+                console.log("Attempts " + countAttempts);
+            } else {
+                console.log("Nothing is submitted");
+            }
+    });
+
+    
+
 })();

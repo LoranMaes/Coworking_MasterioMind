@@ -8,17 +8,11 @@
     })
 })()
 
-const req = require('express/lib/request')
-const mysql = require('mysql')
-
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'highscores',
-    password: 'Azerty123!',
-    database: 'highscores'
-})
-
 // Highscore Name variables
+let naam = localStorage.getItem("username");
+let score = localStorage.getItem("highscore");
+
+// Names
 const firstplaceName = document.getElementById("firstplaceName");
 const secondplaceName = document.getElementById("secondplaceName");
 const thirdplaceName = document.getElementById("thirdplaceName");
@@ -26,85 +20,40 @@ const fourthplaceName = document.getElementById("fourthplaceName");
 const fifthplaceName = document.getElementById("fifthplaceName");
 const sixthplaceName = document.getElementById("sixthplaceName");
 const seventhplaceName = document.getElementById("seventhplaceName");
-const scoresList = document.querySelector('#scoresList');
-const MAX_HIGH_SCORES = 1000;
 
-const isStorage = 'undefined' !== typeof localStorage;
-if (isStorage && localStorage.getItem('highscores')) {
-    elements.scores = localStorage.getItem('highscores').split(',');
-
-}
-
-function gameOver() {
-    elements.scores.unshift(elements.currentScores);
-    isStorage && localStorage.setItem('highscores', elements.scores);
-}
-
-function openScores() {
-    let htmlTemplate = '';
-    let _this = this;
-
-    elements.scores.length = 5;
-    for (let i = 0; i < 5; i++) {
-        htmlTemplate += `<p id="secondplaceScore">${'undefined' == typeof elements.scores[i] ? '' : elements.scores[i]}</p>`;
-        scoresList.innerHTML = htmlTemplate;
-        if (gameOver) {
-            _this = scoresLnk;
-        }
-    }
-    
-}
-// Highscore Names
-firstplaceName.textContent = 'Player 1';
-secondplaceName.textContent = 'Player 2';
-thirdplaceName.textContent = 'Player 3';
-fourthplaceName.textContent = 'Player 4';
-fifthplaceName.textContent = 'Player 5';
-sixthplaceName.textContent = 'Player 6';
-seventhplaceName.textContent = 'Player 7';
-
-// Highscore Score variables
+// Scores
 const firstplaceScore = document.getElementById("firstplaceScore");
 const secondplaceScore = document.getElementById("secondplaceScore");
 const thirdplaceScore = document.getElementById("thirdplaceScore");
+const fourthplaceScore = document.getElementById("fourthplaceScore");
+const fifthplaceScore = document.getElementById("fifthplaceScore");
+const sixthplaceScore = document.getElementById("sixthplaceScore");
 
-// Highscore Scores
-firstplaceScore.innerHTML= `<img class="trophy" src="../../images/images/trophy.png" alt="icon trophy">
-100`;
+// Displaying scores and names
 
-secondplaceScore.innerHTML = `<img class="trophy" src="../../images/images/trophy.png" alt="icon trophy">
-50`;
+// Top 3
+firstplaceName.innerHTML = naam;
+firstplaceScore.innerHTML = `<img class="trophy" src="../../images/images/trophy.png" alt="icon trophy"> ` + score;
 
-thirdplaceScore.innerHTML = `<img class="trophy" src="../../images/images/trophy.png" alt="icon trophy">
-10`;
+secondplaceName.innerHTML = naam;
+secondplaceScore.innerHTML = `<img class="trophy" src="../../images/images/trophy.png" alt="icon trophy"> ` + score;
 
+thirdplaceName.innerHTML = naam;
+thirdplaceScore.innerHTML = `<img class="trophy" src="../../images/images/trophy.png" alt="icon trophy"> ` + score;
 
+// Places 4 - 5 - 6 - 7
 
-
-
-// Highscores from database
-
-connection.connect(function (err) {
-    if (err) throw err;
-    connection.query('SELECT * FROM highscores', function (err, result) {
-        if (err) throw err;
-        console.log(result)
-    })
-
+fourthplaceName.innerHTML = naam;
+fifthplaceName.innerHTML = naam;
+sixthplaceName.innerHTML = naam;
+seventhplaceName.innerHTML = naam;
 
 
-    let updateQuery = connection.query("INSERT INTO `highscores` (name, score) VALUES ('"+firstplaceName+"','"+ firstplaceScore+"')");
-
-    connection.query(updateQuery, function (err, result) {
-        if (err) throw err;
-        console.log(result);
-    })
-})
-    
 
 
-// End database connection
-connection.end()
+
+
+
 
 
 
