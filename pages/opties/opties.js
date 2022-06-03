@@ -71,4 +71,3 @@
             localStorage.setItem("username", name.value)
         }
     })
-})()

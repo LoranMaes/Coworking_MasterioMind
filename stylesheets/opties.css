@@ -1,6 +1,6 @@
 h1 {
-    margin-right: auto;
-    margin-left: auto;
+    margin: 5vh auto;
+    font-size: 24px;
 }
 
 main {
@@ -8,16 +8,19 @@ main {
     flex-direction: column;
 }
 
+
+
 p {
     margin: 0;
 }
 
 .kader {
     padding: 2.5rem 5rem;
-    width: 60%;
+    width: 80%;
     border-radius: 25px;
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 5rem;
     background: rgba(21, 72, 94, 0.25);
     box-shadow: 0 0 15px 15px rgba(21, 72, 94, 0.15);
     max-width: 75rem;
@@ -30,12 +33,13 @@ p {
 }
 
 .marginOnder {
-    margin-bottom: 32px;
+    margin-bottom: 7.5%;
 }
 
-.marginOnder p {
+.marginOnder p, label[for="myRange"], label[for="naam"] {
+    margin: 4% 0;
+    font-size: 48px;
     color: white;
-    font-size: 32px;
     font-weight: bolder;
     align-content: flex-start;
 }
@@ -43,19 +47,27 @@ p {
 .center {
     text-align: center;
     font-weight: bold;
+    font-size: 2.4rem ;
 
 }
 
 .center div {
-    margin: 12px 0;
     display: flex;
-    gap: 24px;
+    
     justify-content: center;
+    margin: 18px 0;
+    gap: 36px;
+}
+
+.center p {
+    font-size: 2.6rem;
 }
 
 .copyright {
     margin-top: 24px;
     text-align: center;
+    
+    font-size: 2.4rem ;
 }
 
 
@@ -66,8 +78,8 @@ input[type=text] {
     background: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a, #FBB03B);
     background-size: 300% 100%;
     color: white;
-    width: 20vw;
-    height: 30px;
+    width: 30rem;
+    height: 48px;
     border: 0;
     border-radius: 100px;
     padding-left: 10px;
@@ -78,18 +90,21 @@ input[type=text] {
 input[type=text]:valid{
     background-position: 100% 0;
     transition: 350ms;
+    width: 30rem;
+    height: 45px;
 }
 
 .tekxtInBox {
     background: linear-gradient(to right, rgb(237, 110, 160), #ec8c69, #f7186a, #FBB03B);
     background-size: 300% 100%;
     background-position: 100% 0;
-    padding-top: 5px;
-    font-size: 24px !important;
-    width: 8vw;
+   
     border-radius: 100px;
     text-align: center;
     box-shadow: 0 0 7px 5px rgba(237, 110, 160, .5);
+    padding-top: 7.5px;
+    font-size: 32px !important;
+    width: 12vw;
 }
 
 
@@ -97,7 +112,7 @@ input[type=text]:valid{
 
 .slider {
     -webkit-appearance: none;
-    width: 20vw;
+    width: 30rem;
     height: 30px;
     border-radius: 100px;
     background: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a, #FBB03B);
@@ -140,20 +155,20 @@ input[type=text]:valid{
     left: 50%;
     bottom: 100%;
     transform: translateX(-50%);
+    font-size: 18px;
 }
 
 /* de toggle knop */
 
-#muziekstatus {
+#muziekstatus, #spelerstatus {
     margin-left: 12px;
-    font-size: 12px;
+    
+    font-size: 24px;
 }
 
 .toggleButton {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
     cursor: pointer;
     margin-top: 50%;
     margin-bottom: auto;
@@ -161,15 +176,18 @@ input[type=text]:valid{
     -webkit-transition: .4s;
     background-size: 300% 100%;
     transition: .4s;
+    width: 90px;
+    height: 51px;
 }
 
 .toggleButton:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
+    height: 39px;
+    width: 39px;
+    left: 6px;
+    bottom: 6px;
+   
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
@@ -177,9 +195,10 @@ input[type=text]:valid{
 
 
 input:checked + .toggleButton:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+
+    -webkit-transform: translateX(39px);
+    -ms-transform: translateX(39px);
+    transform: translateX(39px);
 }
 
 input:checked + .toggleButton{
@@ -201,10 +220,12 @@ a {
 }
 
 img {
-    width: 3vw;
+    width: 6rem;
+    margin-left: 0.5rem;
 }
 
 .socialLinks {
+    font-size: 3.6rem;
     border-radius: 100px;
     display: flex;
     align-items: center;
@@ -237,3 +258,83 @@ img {
     cursor: pointer;
     box-shadow: 0 0 25px #0990c1;
 }
+
+@media (min-width: 62.5em) {
+
+    .kader {
+        width: 60%;
+    }
+
+    .marginOnder p,label[for="myRange"], label[for="naam"] {
+       font-size: 32px;
+       margin: 2% 0;
+    }
+
+    #muziekstatus, #spelerstatus {
+        font-size: 12px;
+    }
+
+    .toggleButton{
+        width: 60px;
+        height: 34px;
+    }
+
+    .toggleButton:before {
+        height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    }
+
+    input:checked + .toggleButton:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    .getalBovenSlider{
+        font-size: 12px;
+    }
+
+    input[type=text] {
+        height: 30px;
+    }
+
+    .tekxtInBox {
+        padding-top: 5px;
+    font-size: 24px !important;
+    width: 8vw;
+    }
+
+    .center div{
+        margin: 12px 0;
+        gap: 24px;
+    }
+
+    h1 {
+        font-size: 4vh;
+    }
+
+    .marginOnder{
+        margin-bottom: 12px;
+    }
+
+    .copyright {
+        font-size: 1.2rem;
+    }
+
+    .center p {
+        font-size: 1.6rem;
+    }
+
+    img {
+        width: 3rem;
+    }
+   
+}
+
+@media (max-width:1500px) {
+    body{
+        overflow: scroll !important;
+    }
+ }
