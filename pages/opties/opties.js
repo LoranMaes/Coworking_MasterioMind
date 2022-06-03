@@ -10,7 +10,7 @@
 
     let musicState = localStorage.getItem("music_state")
     let username = localStorage.getItem("username")
-
+    
     name.value = username
     if(musicState === "true"){
         muziek.checked = true
