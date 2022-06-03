@@ -15,8 +15,7 @@
     //getting all the choices that te user can make or has made
     const previousChsDisp = document.querySelectorAll(".sections div");
     const currentChsDisp = document.querySelectorAll(".guess div");
-    const feedback = document.querySelectorAll(".feedback div");
-    const solution = document.querySelectorAll("#solution div");
+    const feedback = document.querySelectorAll(".feedback div")
 
     //getting all the elements for the game-end popup
     const popup = document.querySelector("#popup");
@@ -109,13 +108,11 @@
     //gives feedback to user
     const feedbackFctn = () => {
         let j = 0;
-        let str = "";
-        let codeCopy = JSON.parse(JSON.stringify(code)); 
-        let currentChsCopy = JSON.parse(JSON.stringify(currentChs)); 
+        let forb = "";
         for(let i = 0; i < maxNrOfInputs; i++) {
             if (code[i] === currentChs[i]) {
                 feedback[j+previousChsIndex*maxNrOfInputs].className = "black";
-                str += i;
+                forb += i;
                 j++;continue;
             } 
         }
@@ -137,7 +134,6 @@
         for(let i = 0; i < maxNrOfInputs; i++) {
             if (code[i] !== currentChs[i]) return false;
         }
-    
         return true;
     }
     //resets whole board
@@ -187,7 +183,7 @@
         } else if (started && currentChsIndex === 4) {
             submitChoice();
         }
-               
+        
     }
     //main function if there are two players
     const mainIfTwoPlayers = function(){

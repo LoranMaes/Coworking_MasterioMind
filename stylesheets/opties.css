@@ -8,7 +8,10 @@ main {
     flex-direction: column;
 }
 
-
+#spelerstatus{
+    margin-bottom: 0;
+    margin-top: 0
+}
 
 p {
     margin: 0;
@@ -332,9 +335,3 @@ img {
     }
    
 }
-
-@media (max-width:1500px) {
-    body{
-        overflow: scroll !important;
-    }
- }
