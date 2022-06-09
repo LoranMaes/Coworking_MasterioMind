@@ -13,12 +13,12 @@ const connection = mysql.createConnection ({
 connection.connect(function(err) {
     if (err) throw err;
     console.log("Connection successfull");
-const sql = "INSERT INTO highscores VALUES (null, 'User 1', 5)";
+    const sql = "INSERT INTO highscores VALUES (null, 'User 1', 5)";
 
-connection.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("inserted one row");
-})
+    connection.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log("inserted one row");
+    })
 
     connection.end();
 

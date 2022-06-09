@@ -47,13 +47,3 @@ fourthplaceName.innerHTML = naam;
 fifthplaceName.innerHTML = naam;
 sixthplaceName.innerHTML = naam;
 seventhplaceName.innerHTML = naam;
-
-
-
-
-
-
-
-
-
-
