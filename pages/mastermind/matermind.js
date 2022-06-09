@@ -1,24 +1,8 @@
 'use strict';
 
 (function() {
-<<<<<<< HEAD
     //button that navigates back to the homepage
     const backToHome = document.querySelector("#backToHome");
-=======
-
-    //setting maximum highscores
-    const countAttempts = -1;
-    const highScore = 8;
-
-    //getting oldest highscore of user
-    let getPreviousHighscore = localStorage.getItem("highscore");
-
-
-
-
-    //const backToHome = document.querySelector("#")
-    const gameBtn = document.querySelector("#gameBtn");
->>>>>>> a36419146b76720e9f269ec41b1357f064440fde
 
     //start/restart/submit-button
     const gameBtn = document.querySelector("#gameBtn");
@@ -56,25 +40,12 @@
     let currentChsIndex = 0;
     let previousChsIndex = maxAttempts-1;
 
-<<<<<<< HEAD
     backToHome.addEventListener("click", () => {
         window.location = "../../"
     })
 
     //creating a random colour code
     const genRandCode = () => {
-=======
-    //resetting highscores
-    const resetHighscore = function() {
-        highScore = 7;
-        countAttempts = 0;
-    }
-
-
-    //creating a random colour code
-    const genRandCode = function() {
-
->>>>>>> a36419146b76720e9f269ec41b1357f064440fde
         for (let i = 0; i < maxNrOfInputs; i++) {
             code[i] = colours[Math.floor(Math.random()*colours.length)];
             console.log(code);
@@ -115,19 +86,7 @@
             started = false;
             gameBtn.innerText = "Restart";
             showSolution();
-<<<<<<< HEAD
             displayPopup(true); 
-=======
-            
-            // Only store highest score of user
-            if (highScore > getPreviousHighscore) {
-                localStorage.setItem("highscore", highScore)
-            } 
-            
-            window.alert("You won"); 
-
-           
->>>>>>> a36419146b76720e9f269ec41b1357f064440fde
         }
         if(previousChsIndex === 0) {
                 started = false;
@@ -292,11 +251,12 @@
 
     //main function
     const main = () => {
+        let countAttempts = 0
+        let highScore = 0
         if(gameBtn.textContent === "Restart") highScoreUpdate();
         popup.style.display = 'none';
         if (!started) {
             reset();
-            resetHighscore();
             genRandCode();
             started = true;
             gameBtn.innerText = "Submit Choice";
@@ -348,25 +308,4 @@
             currentChsIndex--;
         }
     }));
-<<<<<<< HEAD
 })();
-=======
-
-
-    //only counting scores when a non empty input is submitted
-    gameBtn.addEventListener("click", function() {
-            if (started && currentChsIndex === 4) {
-                countAttempts += 1;
-                highScore -= 1;
-                console.log("Highscore " + highScore);
-                console.log("Attempts " + countAttempts);
-            } else {
-                console.log("Nothing is submitted");
-            }
-    });
-
-    
-    
-
-})();
->>>>>>> a36419146b76720e9f269ec41b1357f064440fde
