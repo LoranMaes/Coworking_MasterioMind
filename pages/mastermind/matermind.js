@@ -31,13 +31,14 @@
     //getting all the choices that te user can make or has made
     const previousChsDisp = document.querySelectorAll(".sections div");
     const currentChsDisp = document.querySelectorAll(".guess div");
-    const feedback = document.querySelectorAll(".feedback div")
+    const feedback = document.querySelectorAll(".feedback div");
+    const solution = document.querySelectorAll("#solution div");
 
     //getting all the elements for the game-end popup
     const popup = document.querySelector("#popup");
     const popupTitel = document.querySelector("#popup h2");
     const popupParagraph = document.querySelector("#popup p")
-    const popupParagraph2 = document.querySelector("#popup p:nth-child(2)")
+    const popupParagraph2 = document.querySelector("#popup p:last-of-type")
     
     //extra param
     const maxAttempts = 7;
@@ -155,11 +156,14 @@
     //gives feedback to user
     const feedbackFctn = () => {
         let j = 0;
-        let forb = "";
+        let str = "";
+        let codeCopy = JSON.parse(JSON.stringify(code)); 
+        let currentChsCopy = JSON.parse(JSON.stringify(currentChs)); 
         for(let i = 0; i < maxNrOfInputs; i++) {
+            //if(optie)j=i;
             if (code[i] === currentChs[i]) {
                 feedback[j+previousChsIndex*maxNrOfInputs].className = "black";
-                forb += i;
+                str += i;
                 j++;continue;
             } 
         }
@@ -170,12 +174,14 @@
         codeCopy.sort();
         currentChsCopy.sort();
         for(let i = 0; i< currentChsCopy.length; i++) {
+            //if(optie)j=i;
             if (currentChsCopy[i] === codeCopy[i]) {
                 feedback[j+previousChsIndex*maxNrOfInputs].className = "white";
                 j++;continue;
             }
         }
     }
+
     //looks whether the input was a winner
     const chckChs = () => {
         for(let i = 0; i < maxNrOfInputs; i++) {
@@ -196,6 +202,9 @@
                 makeChoice(colours[i]);
             });
         }
+        for (let i = 0; i < code.length; i++) {
+            solution[i].className = "";
+        }
 
         previousChsIndex = maxAttempts -1;
     }
@@ -210,17 +219,80 @@
         if (gameWon) {
             popupTitel.innerHTML = "You won!"
             popupParagraph.innerHTML = `You guessed the right code in ${maxAttempts-previousChsIndex} guesses`
+            let temp = document.createElement("div")
+            temp.setAttribute("id","form")
+            temp.innerHTML = `
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" value=${localStorage.getItem("name") ? localStorage.getItem("name") : ""}>`
+            popup.insertBefore(temp,popupParagraph2)
         } else {
             popupTitel.innerHTML = "You lost...";
             popupParagraph.innerHTML = `You ran out of guesses...`;
         }
-        popupParagraph2.innerHTML = `(Press the 'Restart' button to start a new game)`;
+        popupParagraph2.innerHTML = `[Press the 'Restart' button to start a new game]`;
         popup.style.display = "flex";
     }
+    const scoreSet = [1,2,3,4,6,8,10]
+    //getting name and checking for high score
+    const highScoreUpdate = () => {
+        const form = document.querySelector("#popup #form"); 
+        const name = document.querySelector("#popup #name");
+        const score = scoreSet[previousChsIndex + 1];
+        if(name.value) {
+            if(!localStorage.getItem("highscore")) {
+                localStorage.setItem("highscore",score)
+                localStorage.setItem("name", name.value)
+                highScoreInsertReq(name.value,score)
+            } else {
+                if(score >= localStorage.getItem("highscore")) {
+                    localStorage.setItem("highscore",score);
+                    localStorage.setItem("name",name.value);
+                    highScoreUpdateReq(name.value, score);
+                }
+            }
+        }
+        popup.removeChild(form);
+    }
 
+    const highScoreUpdateReq = async (name,score) => {
+        try {
+            const result = await fetch('https://backend.lukasdownes.ikdoeict.be/masteriomind',{
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: name,
+                    score: score
+                })
+            })
+            if(!result.ok) throw Error();
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    const highScoreInsertReq = async (name,score) => {
+        try {
+            const result = await fetch('https://backend.lukasdownes.ikdoeict.be/masteriomind',{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: name,
+                    score: score
+                })
+            })
+            if(!result.ok) throw Error();
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
     //main function
     const main = () => {
+        if(gameBtn.textContent === "Restart") highScoreUpdate();
         popup.style.display = 'none';
         if (!started) {
             reset();
