@@ -1,12 +1,12 @@
-(function(){
-    "use strict"
+ "use strict"
+ (function(){
+   
 
     const close = document.querySelector("#close-to-menu")
 
     close.addEventListener("click", () => {
         window.location = "../../"
     })
-
     const scoreList = document.querySelector("ol");
     const getAllScores = async () => {
         try {
@@ -28,6 +28,3 @@
     }
     getAllScores();
 })()
-
-//TO DO: transelate
-// rules correction 
