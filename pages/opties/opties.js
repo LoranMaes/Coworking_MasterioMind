@@ -6,11 +6,34 @@
     const allRanges = document.querySelectorAll(".range-wrap")
     const muziek = document.querySelector("#muziek")
     const text = document.querySelector("#muziekstatus")
+<<<<<<< HEAD
     const spelers = document.querySelector("#spelers")
     const textSpelers = document.querySelector("#spelerstatus")
     const lang = localStorage.getItem("lang")
     let musicState = localStorage.getItem("music_state")
     let username = localStorage.getItem("username")
+=======
+    const score = document.getElementById("score");
+
+    let musicState = localStorage.getItem("music_state")
+    let username = localStorage.getItem("username")
+    let highscore = localStorage.getItem("highscore")
+    score.innerHTML = highscore;
+    
+    
+    name.value = username
+    if(musicState === "true"){
+        muziek.checked = true
+        text.innerHTML = "(enabled)"
+        audio.play()
+    }
+    else{
+        muziek.checked = false
+        text.innerHTML = "(disabled)"
+        audio.pause()
+    }
+
+>>>>>>> a36419146b76720e9f269ec41b1357f064440fde
     back.addEventListener("click", () => {
         window.location = "../../"
     })
@@ -40,6 +63,7 @@
         bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
     }
 
+<<<<<<< HEAD
     window.addEventListener("DOMContentLoaded", () => {
         name.value = username
         let state = []
@@ -88,6 +112,26 @@
             spelers.checked = false
             textSpelers.innerHTML = `(${playerState[0]})`;
         }
+=======
+
+    muziek.addEventListener("click", e => {
+        if (muziek.checked === true){
+            text.innerHTML = "(enabled)";
+            audio.play();
+            localStorage.setItem("music_state", true)
+        }
+        else {
+            text.innerHTML = "(disabled)";
+            audio.pause();
+            localStorage.setItem("music_state", false)
+        }
+    })
+
+    name.addEventListener("keypress", (e) => {
+        if(e.key === "Enter"){
+            localStorage.setItem("username", name.value)
+        }
+>>>>>>> a36419146b76720e9f269ec41b1357f064440fde
     })
 
     spelers.addEventListener("click", e => {
