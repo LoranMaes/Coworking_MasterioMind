@@ -4,7 +4,9 @@ h1.title {
 }
 main {
     display: flex;
+    height: 100vh;
     flex-direction: column;
+    justify-content: space-between;
 }
 body {
     overflow: hidden;
@@ -12,7 +14,7 @@ body {
 #game {
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     margin-bottom: 10rem;
 }
 
@@ -58,10 +60,9 @@ main section section {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    
-    position: absolute;
+    flex-direction: column;
     bottom: -19vh;
-    width: 70%;
+    width: fit-content;
     padding: 5px;
 }
 #guess {
@@ -174,6 +175,9 @@ button {
         position: absolute;
         top: 1rem;
         left: 1rem;
+    }
+    #game{
+        justify-content: center;
     }
 }
 @media (min-width: 470px) {
