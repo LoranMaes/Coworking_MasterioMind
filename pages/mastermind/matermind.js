@@ -197,7 +197,7 @@
         const form = document.querySelector("#popup #form"); 
         const name = document.querySelector("#popup #name");
         const score = scoreSet[previousChsIndex + 1];
-        if(name.value) {
+        if(name && name.value) {
             if(!localStorage.getItem("highscore")) {
                 localStorage.setItem("highscore",score)
                 localStorage.setItem("name", name.value)
