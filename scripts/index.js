@@ -5,6 +5,7 @@
     const opties = document.querySelector("#opties_btn")
     const taal = document.querySelector("#taal_btn")
     const musicState = localStorage.getItem("music_state") 
+    const highscores = document.querySelector("#highscoresbtn")
 
     spelregels.addEventListener("click", () => {
         window.location = "./pages/spelregels"
@@ -23,6 +24,10 @@
 
         audio.play()
         audio.volume = localStorage.getItem("volume")
+    }
+    
+    highscores.addEventListener("click", () => {
+        window.location = "./pages/highscores/"
     }
 
     window.addEventListener('DOMContentLoaded', () => {
