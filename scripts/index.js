@@ -28,7 +28,7 @@
     
     highscores.addEventListener("click", () => {
         window.location = "./pages/highscores/"
-    }
+    })
 
     window.addEventListener('DOMContentLoaded', () => {
         const lang = localStorage.getItem("lang")
