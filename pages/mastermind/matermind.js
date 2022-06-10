@@ -209,8 +209,9 @@
                     highScoreUpdateReq(name.value, score);
                 }
             }
+            popup.removeChild(form);
         }
-        popup.removeChild(form);
+        
     }
 
     const highScoreUpdateReq = async (name,score) => {
