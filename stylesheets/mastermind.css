@@ -9,7 +9,8 @@ main {
     justify-content: space-between;
 }
 body {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 #game {
     position: relative;
