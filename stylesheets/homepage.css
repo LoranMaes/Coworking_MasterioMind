@@ -25,6 +25,32 @@ h1.title{
     position: absolute;
 }
 
+body.body{
+    text-align: center;
+}
+
+body.body ol{
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 1.6rem;
+    margin-top: 3.6rem;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 1rem;
+}
+
+body.body ol li{
+    width: fit-content;
+    padding: 0.5rem 1rem;
+}
+
+body.body ol li::marker{
+    font-size: 2.4rem;
+}
+
+body.body ol li span::before{
+    content: "Score: ";
+}
+
 @media screen and (max-width: 400px) {
     h1.title{
         font-size: 5.2rem;
