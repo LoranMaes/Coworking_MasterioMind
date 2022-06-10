@@ -127,16 +127,16 @@
         switch(lang){
             case "en": {
                 state = ["enabled", "disabled"]
-            }; return;
+            };break;
             case "fr": {
                 state = ["activé", "desactivé"]
-            }; return;
+            }; break;
             case "nl": {
                 state = ["geactiveerd", "gedesactiveerd"]
-            }; return;
+            };break;
             case "de": {
                 state = ["aktiviert", "deaktiviert"]
-            }; return;
+            }; break;
             default:{
                 state = ["enabled", "disabled"]
             }
