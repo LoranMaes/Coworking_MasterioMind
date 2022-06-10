@@ -1,6 +1,5 @@
- "use strict"
  (function(){
-   
+  "use strict"   
 
     const close = document.querySelector("#close-to-menu")
 
